@@ -43,6 +43,11 @@ def collatz_eval (i, j) :
 
     m = 0
     x = i
+    """ 
+    cycle through every integer in the range i through j
+    do cycle length for each integer in the range
+    compare each new cycle length with the current max cycle length, m
+    """
     while (x <= j) :
         c = 0
         c = collatz_cycle(x)
@@ -53,18 +58,35 @@ def collatz_eval (i, j) :
 
 
 def collatz_max (c, m):
+    """
+    c is the most recent cycle length
+    m is the current max cycle length
+    return the the greater value of the c and m
+    """
     if c > m:
         return c
     else :
         return m
     
 def collatz_cycle(r) :
-    
+    """
+    r is the integer for which the cycle length needs to be determined
+    c keeps the count for the cycle length
+    return c, the cycle length for the integer r
+    """
     c = 1
+    
+    """ 
+    do loop while r does not equal 1
+    when r equals 1, stop and return c, the cycle length 
+    """
     while r != 1:
+        
+        """ if r is even, divide by 2 """
         if (r%2 == 0) :
             r = r/2
             c += 1
+        """ if r is odd, multiply by 3 and add 1 """
         else :
             r = r*3 + 1
             c += 1
