@@ -82,11 +82,13 @@ def collatz_cycle(r) :
     """
     while r != 1:
         
-        """ if r is even, divide by 2 """
+        """ 
+        if r is even, divide by 2 
+        else multiply r by 3 and add 1
+        """
         if (r%2 == 0) :
             r = r/2
             c += 1
-        """ if r is odd, multiply by 3 and add 1 """
         else :
             r = r*3 + 1
             c += 1
