@@ -40,9 +40,13 @@ def collatz_eval (i, j) :
     assert i > 0
     assert j > 0
     # <your code>
-    v = 1
-    assert v > 0
-    return v
+
+
+def collatz_max (c, m):
+    if c > m:
+        return c
+    else :
+        return m
 
 # -------------
 # collatz_print
