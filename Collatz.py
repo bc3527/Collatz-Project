@@ -41,6 +41,16 @@ def collatz_eval (i, j) :
     assert j > 0
     # <your code>
 
+    m = 0
+    x = i
+    while (x <= j) :
+        c = 0
+        c = collatz_cycle(x)
+        m = collatz_max (c, m)
+        x += 1
+        
+    return m
+
 
 def collatz_max (c, m):
     if c > m:
