@@ -47,6 +47,19 @@ def collatz_max (c, m):
         return c
     else :
         return m
+    
+def collatz_cycle(r) :
+    
+    c = 1
+    while r != 1:
+        if (r%2 == 0) :
+            r = r/2
+            c += 1
+        else :
+            r = r*3 + 1
+            c += 1
+    
+    return c
 
 # -------------
 # collatz_print
