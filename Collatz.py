@@ -6,6 +6,9 @@
 # Glenn P. Downing
 # ---------------------------
 
+
+cache = [0]*1000001
+
 # ------------
 # collatz_read
 # ------------
@@ -62,14 +65,16 @@ def collatz_eval (i, j) :
 
     c = 0  
     while (x <= j) :
-        c = collatz_cycle(x)
-        if c > m :
-            m = c
+        if cache[x] > 0 :
+            c = cache[x]
+        else :
+            c = collatz_cycle(x)
+        m = collatz_max (c, m)
         x += 1
         
     return m
  
- 
+
 def collatz_max (c, m):
     """
     c is the most recent cycle length
@@ -88,24 +93,27 @@ def collatz_cycle(r) :
     return c, the cycle length for the integer r
     """
     c = 1
+    x = r
     
     """ 
     do loop while r does not equal 1
     when r equals 1, stop and return c, the cycle length 
     """
-    while r != 1:
+    
+    while x != 1:
         
         """ 
         if r is even, divide by 2 
         else multiply r by 3 and add 1
         """
-        if (r%2 == 0) :
-            r = r/2
+        if (x%2 == 0) :
+            x = x/2
             c += 1
         else :
-            r = (r*3 + 1)/2
+            x = (x*3 + 1)/2
             c += 2
     
+    cache[r] = c
     return c
  
 # -------------
