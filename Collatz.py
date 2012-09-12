@@ -9,7 +9,7 @@
 # ------------
 # collatz_read
 # ------------
-
+ 
 def collatz_read (r, a) :
     """
     reads two ints into a[0] and a[1]
@@ -26,11 +26,11 @@ def collatz_read (r, a) :
     assert a[0] > 0
     assert a[1] > 0
     return True
-
+ 
 # ------------
 # collatz_eval
 # ------------
-
+ 
 def collatz_eval (i, j) :
     """
     i is the beginning of the range, inclusive
@@ -46,34 +46,36 @@ def collatz_eval (i, j) :
         temp = i
         i = j
         j = temp
-
+        
+ 
     m = 0
     x = i
     
-    assert i <= j
     """ 
     cycle through every integer in the range i through j
     do cycle length for each integer in the range
     compare each new cycle length with the current max cycle length, m
     """
+    temp = j/2
+    if i <= temp :
+        x = temp
+
+    c = 0  
     while (x <= j) :
-        c = 0
         c = collatz_cycle(x)
-        m = collatz_max (c, m)
+        if c > m :
+            m = c
         x += 1
         
     return m
-
-
+ 
+ 
 def collatz_max (c, m):
     """
     c is the most recent cycle length
     m is the current max cycle length
     return the the greater value of the c and m
     """
-    assert c > 0
-    assert m >= 0
-    
     if c > m:
         return c
     else :
@@ -101,17 +103,15 @@ def collatz_cycle(r) :
             r = r/2
             c += 1
         else :
-            assert r%2 == 1
-            
-            r = r*3 + 1
-            c += 1
+            r = (r*3 + 1)/2
+            c += 2
     
     return c
-
+ 
 # -------------
 # collatz_print
 # -------------
-
+ 
 def collatz_print (w, i, j, v) :
     """
     prints the values of i, j, and v
@@ -121,11 +121,11 @@ def collatz_print (w, i, j, v) :
     v is the max cycle length
     """
     w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
-
+ 
 # -------------
 # collatz_solve
 # -------------
-
+ 
 def collatz_solve (r, w) :
     """
     read, eval, print loop
