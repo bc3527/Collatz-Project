@@ -71,6 +71,8 @@ def collatz_eval (i, j) :
             c = collatz_cycle(x)
         m = collatz_max (c, m)
         x += 1
+    
+    assert m > 0
         
     return m
  
@@ -81,6 +83,10 @@ def collatz_max (c, m):
     m is the current max cycle length
     return the the greater value of the c and m
     """
+    
+    assert c > 0
+    assert m >= 0
+    
     if c > m:
         return c
     else :
@@ -99,6 +105,7 @@ def collatz_cycle(r) :
     do loop while r does not equal 1
     when r equals 1, stop and return c, the cycle length 
     """
+    assert x > 0
     
     while x != 1:
         
@@ -112,6 +119,8 @@ def collatz_cycle(r) :
         else :
             x = (x*3 + 1)/2
             c += 2
+    
+    assert c > 0
     
     cache[r] = c
     return c
