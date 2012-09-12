@@ -40,9 +40,17 @@ def collatz_eval (i, j) :
     assert i > 0
     assert j > 0
     # <your code>
+    
+    temp = 0
+    if (i > j) :
+        temp = i
+        i = j
+        j = temp
 
     m = 0
     x = i
+    
+    assert i <= j
     """ 
     cycle through every integer in the range i through j
     do cycle length for each integer in the range
@@ -63,6 +71,9 @@ def collatz_max (c, m):
     m is the current max cycle length
     return the the greater value of the c and m
     """
+    assert c > 0
+    assert m >= 0
+    
     if c > m:
         return c
     else :
@@ -90,6 +101,8 @@ def collatz_cycle(r) :
             r = r/2
             c += 1
         else :
+            assert r%2 == 1
+            
             r = r*3 + 1
             c += 1
     
