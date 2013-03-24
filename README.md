@@ -2,7 +2,7 @@ Collatz-Project
 ===============
 
 """
-To test the program:
+To test the program:   
     % python TestCollatz.py >& TestCollatz.py.out
     % chmod ugo+x TestCollatz.py
     % TestCollatz.py >& TestCollatz.py.out
