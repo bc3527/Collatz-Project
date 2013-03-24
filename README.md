@@ -3,9 +3,9 @@ Collatz-Project
 
 """
 To test the program:   
-    % python TestCollatz.py >& TestCollatz.py.out
-    % chmod ugo+x TestCollatz.py
-    % TestCollatz.py >& TestCollatz.py.out
+    % python TestCollatz.py >& TestCollatz.py.out   
+    % chmod ugo+x TestCollatz.py   
+    % TestCollatz.py >& TestCollatz.py.out   
 """
 
 Collatz Project: 
