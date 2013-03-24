@@ -8,7 +8,7 @@ To test the program:
     % TestCollatz.py >& TestCollatz.py.out
 """
 
-Collatz Project:
+Collatz Project: 
 
 Give the input as a range of numbers and the program will return the max number
 the collatze cycle reaches with any of those numbers.
